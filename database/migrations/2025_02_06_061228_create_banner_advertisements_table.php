@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('link');
             $table->enum('is_active', ['active', 'not_active']);
-            $table->string('type');
+            $table->enum('type', ['banner', 'square']);
             $table->string('thumbnail');
             $table->softDeletes();
             $table->timestamps();

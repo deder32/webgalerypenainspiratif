@@ -24,8 +24,8 @@ class Category extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function post(): HasMany
+    public function posts(): HasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class, 'category_id');
     }
 }

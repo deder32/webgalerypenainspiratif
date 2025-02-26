@@ -15,9 +15,23 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AuthorResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Content Management';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() > 10 ? 'warning' : 'success';
+    }
+
+    protected static ?string $navigationBadgeTooltip = 'The number of authors';
+
     protected static ?string $model = Author::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form
     {
@@ -29,10 +43,8 @@ class AuthorResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('avatar')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('accupation')
+                Forms\Components\FileUpload::make('avatar'),
+                Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -46,9 +58,8 @@ class AuthorResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('avatar')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('accupation')
+                Tables\Columns\ImageColumn::make('avatar'),
+                Tables\Columns\TextColumn::make('occupation')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()

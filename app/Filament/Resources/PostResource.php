@@ -16,9 +16,22 @@ use App\Filament\Resources\PostResource\RelationManagers;
 
 class PostResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Content Management';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() > 10 ? 'warning' : 'success';
+    }
+
+    protected static ?string $navigationBadgeTooltip = 'The number of posts';
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-up-on-square-stack';
 
     public static function form(Form $form): Form
     {
@@ -76,14 +89,16 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('judul')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('thumbnail')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('is_featured'),
-                Tables\Columns\TextColumn::make('category.id')
-                    ->numeric()
+                Tables\Columns\ImageColumn::make('thumbnail'),
+                Tables\Columns\TextColumn::make('is_featured')
+                    ->badge()
+                    ->color(fn (string $state): string =>match ($state){
+                        'featured' => 'succes',
+                        'not_featured' => 'warning'
+                    }),
+                Tables\Columns\TextColumn::make('category.judul')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('author_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('author_name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
