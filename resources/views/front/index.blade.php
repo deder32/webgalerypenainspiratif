@@ -8,6 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 		<!-- CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+		
 	</head>
 	<body class="font-[Poppins] pb-[72px]">
 		<x-navbar/>
@@ -22,7 +23,7 @@
 			@endforeach
 		</nav>
 		<section id="Featured" class="mt-[30px]">
-			<div class="main-carousel w-full">
+			<div class="w-full main-carousel">
 				@forelse ($featured_posts as $post)
 				<div class="featured-news-card relative w-full h-[550px] flex shrink-0 overflow-hidden">
 					<img src="{{ Storage::url($post->thumbnail) }}" class="thumbnail absolute w-full h-full object-cover" alt="icon" />
@@ -35,10 +36,10 @@
 						</div>
 						<div class="prevNextButtons flex items-center gap-4 mb-[60px]">
 							<button class="button--previous appearance-none w-[38px] h-[38px] flex items-center justify-center rounded-full shrink-0 ring-1 ring-white hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-								<img src="assets/images/icons/arrow.svg" alt="arrow" />
+								<img src="{{asset('assets/images/icons/arrow.svg')}}" alt="arrow" />
 							</button>
 							<button class="button--next appearance-none w-[38px] h-[38px] flex items-center justify-center rounded-full shrink-0 ring-1 ring-white hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300 rotate-180">
-								<img src="assets/images/icons/arrow.svg" alt="arrow" />
+								<img src="{{asset('assets/images/icons/arrow.svg')}}" alt="arrow" />
 							</button>
 						</div>
 					</div>
@@ -104,7 +105,7 @@
 		<section id="Advertisement" class="max-w-[1130px] mx-auto flex justify-center mt-[70px]">
 			<div class="flex flex-col gap-3 shrink-0 w-fit">
 				<a href="{{$banner_advertisements->link}}">
-					<div class="w-[900px] h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
+					<div class="w-[900px] h-[200px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
 						<img src="{{Storage::url($banner_advertisements->thumbnail)}}" class="object-cover w-full h-full" alt="ads" />
 					</div>
 				</a>
@@ -342,10 +343,11 @@
 			</div>
 		</section>
 
-		<script src="/public/js/two-lines-text.js"></script>
+		<script src="{{asset('customjs/two-lines-text.js')}}"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 		<!-- JavaScript -->
 		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-		<script src="/public/js/carousel.js"></script>
+		<script src="{{asset('customjs/carousel.js')}}"></script>
+		
 	</body>
 </html>

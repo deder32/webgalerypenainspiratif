@@ -65,6 +65,6 @@ class FrontController extends Controller
             ->inRandomOrder()
             ->first();
 
-        return view('front.category', compact('categories', 'banner_advertisements', 'authors'));
+        return view('front.author', compact('categories', 'banner_advertisements', 'authors'));
     }
 }
