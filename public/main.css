@@ -1,3 +1,4 @@
+
 /* width */
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
@@ -92,3 +93,7 @@
     object-position: left;
     border-radius: 20px;
 }
+
+#main-content {
+    margin-bottom: 50px; /* Jarak sebelum footer */
+  }

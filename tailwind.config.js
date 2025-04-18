@@ -16,5 +16,18 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require('daisyui')],
+    daisyui: {
+    themes: [
+              {
+                mytheme: {
+                  primary: '#1E3A8A', // biru tua
+                  secondary: '#64748B',
+                  accent: '#22D3EE',
+                  neutral: '#1F2937',
+                  'base-100': '#FFFFFF',
+                },
+              },
+            ],        
+    },
 };

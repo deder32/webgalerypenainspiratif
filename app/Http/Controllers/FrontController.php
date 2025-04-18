@@ -43,8 +43,25 @@ class FrontController extends Controller
             ->take(3)
             ->get();
 
+            $education_posts = Post::whereHas('category', function($query){
+                $query->where('judul', 'Education');
+            })
+            ->where('is_featured', 'not_featured')
+            ->latest()
+            ->take(3)
+            ->get();
+
+            $archievement_posts = Post::whereHas('category', function($query){
+                $query->where('judul', 'Archievement');
+            })
+            ->where('is_featured', 'not_featured')
+            ->latest()
+            ->take(3)
+            ->get();
+
+
             return view('front.index',
-            compact('categories', 'authors', 'entertainment_posts', 'posts', 'featured_posts', 'banner_advertisements'));
+            compact('categories', 'authors', 'entertainment_posts', 'posts', 'featured_posts', 'banner_advertisements', 'education_posts', 'archievement_posts'));
     }
 
     public Function category (Category $category) {
