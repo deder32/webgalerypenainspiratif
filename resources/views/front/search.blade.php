@@ -8,6 +8,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 	</head>
 	<body class="font-[Poppins]">
@@ -22,27 +24,7 @@
 		</a>
 		@endforeach
 	</nav>
-		<section id="heading" class="max-w-[1130px] mx-auto flex items-center flex-col gap-[30px] mt-[70px]">
-			<h1 class="text-4xl leading-[45px] font-bold text-center">
-				Explore Hot Trending <br />
-				Good News Today
-			</h1>
-			<form action="{{ route('front.search') }}" method="GET">
-				<label for="search-bar" class="w-[500px] flex p-[12px_20px] transition-all duration-300 gap-[10px] ring-1 ring-[#E8EBF4] focus-within:ring-2 focus-within:ring-[#FF6B18] rounded-[50px] group">
-					<div class="flex w-5 h-5 shrink-0">
-						<img src="assets/images/icons/search-normal.svg" alt="icon" />
-					</div>
-					<input
-						autocomplete="off"
-						type="text"
-						id="search-bar"
-						name="keyword"
-						placeholder="Search hot trendy news today..."
-						class="appearance-none font-semibold placeholder:font-normal placeholder:text-[#A3A6AE] outline-none focus:ring-0 w-full"
-					/>
-				</label>
-			</form>
-		</section>
+		
 		<section id="search-result" class="max-w-[1130px] mx-auto flex items-start flex-col gap-[30px] mt-[70px] mb-[100px]">
 			<h2 class="text-[26px] leading-[39px] font-bold">Search Result: <span>{{ ucfirst($keyword) }}</span></h2>
 			<div id="search-cards" class="grid grid-cols-3 gap-[30px]">
@@ -61,9 +43,27 @@
 					</div>
 				</a>
 				@empty
-				<p>Belum ada artikel</p>
+				<div class="flex flex-col items-center justify-center p-6 min-h-[300px] text-center">
+  				<!-- Animated Circle -->
+  					<div class="w-20 h-20 mb-6 rounded-full bg-gray-100 flex items-center justify-center animate-pulse">
+   	 					<span class="text-3xl">📝</span>
+  					</div>
+  
+  					<h3 class="text-xl font-semibold text-gray-800 mb-1">Belum ada artikel</h3>
+  					<p class="text-gray-500 text-sm mb-6">Konten sedang dalam persiapan</p>
+  
+  						<a href="{{route('front.allpost')}}" class="text-blue-500 hover:text-blue-600 font-medium text-sm flex items-center group">
+    				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+    				</svg>
+    				Lihat artikel lainnya
+					</a>
+					</div>
 				@endforelse
 			</div>
 		</section>
 	</body>
+	<footer>
+		<x-footer/>
+	</footer>
 </html>
