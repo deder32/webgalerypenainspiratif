@@ -143,4 +143,23 @@ class FrontController extends Controller
             ->first();
         return view('front.allpost', compact('posts', 'banner_advertisements'));
     }
+//contact
+    public function contact()
+    {
+        return view('front.contact'); // Sesuaikan path view
+    }
+// Di Controller
+    public function sendContact(Request $request) {
+    // Validasi
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+    ]);
+
+    // Proses pengiriman email/notifikasi
+    // ...
+
+    return back()->with('success', 'Pesan terkirim!');
+}
 }

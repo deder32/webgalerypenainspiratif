@@ -7,9 +7,9 @@
       <div>
         <h2 class="text-xl font-bold mb-4 border-b pb-2">Menu</h2>
         <ul class="space-y-2">
-          <li><a href="#" class="hover:text-blue-300">Tentang Kami</a></li>
-          <li><a href="#" class="hover:text-blue-300">Produk</a></li>
-          <li><a href="#" class="hover:text-blue-300">Blog</a></li>
+          <li><a href="{{route('front.allpost')}}" class="hover:text-blue-300">All Post</a></li>
+          <li><a href="{{route('front.contact')}}" class="hover:text-blue-300">Contact</a></li>
+          <li><a href="{{route('front.index')}}" class="hover:text-blue-300">Home Page</a></li>
         </ul>
       </div>
 
@@ -21,7 +21,7 @@
             <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            dederismakomalasari@gmail.com
+            penainspiratif@gmail.com
           </li>
           <li class="flex items-center gap-2">
             <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

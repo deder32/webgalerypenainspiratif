@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="font-[Poppins]">
 	<x-navbar/>
 <section id="Up-to-date" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px]">
 			<div class="flex justify-between items-center">

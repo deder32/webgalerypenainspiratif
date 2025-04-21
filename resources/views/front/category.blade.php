@@ -54,7 +54,7 @@
             @endforelse
 		</div>
 	</section>
-	<section id="Advertisement" class="max-w-[1130px] mx-auto flex justify-center mt-[70px]">
+	<section id="Advertisement1" class="max-w-[1130px] mx-auto flex justify-center mt-[70px]">
 			<div class="flex flex-col gap-3 shrink-0 w-fit">
 				<a href="{{$banner_advertisements->link}}">
 					<div class="w-[900px] h-[200px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">

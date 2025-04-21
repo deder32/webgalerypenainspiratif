@@ -8,21 +8,24 @@
 	<link href="{{asset('main.css')}}" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
 		rel="stylesheet" />
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="font-[Poppins] pb-[83px]">
+	<x-navbar/>
     @foreach ($categories as $item_category)
     @endforeach
-<x-navbar/>
 	<nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
-		<a href="{{ route('front.author', $item_category->slug)}}"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="{{Storage::url($item_category->icon)}}" alt="icon" />
-			</div>
-			<span>{{$item_category->judul}}</span>
-		</a>
-	</nav>
+				@foreach ($categories as $category)
+			<a href="{{ route('front.category', $category->slug)}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
+				<div class="w-6 h-6 flex shrink-0">
+					<img src="{{ Storage::url($category->icon) }}" alt="icon" />
+				</div>
+				<span>{{$category->judul}}</span>
+			</a>
+			@endforeach
+		</nav>
 	<section id="author" class="max-w-[1130px] mx-auto flex items-center flex-col gap-[30px] mt-[70px]">
 		<div id="title" class="flex items-center gap-[30px]">
 			<h1 class="text-4xl leading-[45px] font-bold">Author News</h1>
@@ -75,5 +78,5 @@
 		</div>
 	</section>
 </body>
-
+<x-footer/>
 </html>

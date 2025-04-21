@@ -21,7 +21,7 @@
 
 			</div>
 			<div class="flex items-center gap-3">
-				<a href="" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Upgrade Pro</a>
+				<a href="{{route('front.contact')}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#2563eb]">contact</a>
 				<a href="{{route('front.allpost')}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-bold transition-all duration-300 bg-blue-500 text-white hover:shadow-[0_10px_20px_0_rgba(59,130,246,0.5)]">
 					<div class="w-6 h-6 flex shrink-0">
 						<img src="{{asset('assets/images/icons/favorite-chart.svg')}}" alt="icon" />

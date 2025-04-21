@@ -19,3 +19,5 @@ Route::get('/search', [FrontController::class, 'search'])
     ->name('front.search');
 Route::get('/allpost', [FrontController::class, 'allpost'])
     ->name('front.allpost');
+Route::get('/contact', [FrontController::class, 'contact'])
+    ->name('front.contact');

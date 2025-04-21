@@ -105,3 +105,24 @@
     text-align: center;
     font-family: poppins;
   }
+
+#education-image {
+	width: 80% !important;
+	height: 300px !important;
+	object-fit: cover !important;
+	display: block !important;
+}
+#post-edu{
+    padding: 0%;
+    margin: 0%;
+    margin-right: 0%;
+    display: block;
+}
+
+#advertisement1{
+    margin-bottom: 50px;
+}
+
+#Latest-entertainment {
+    margin-bottom: 50px;
+}
