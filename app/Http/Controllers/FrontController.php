@@ -43,7 +43,7 @@ class FrontController extends Controller
             ->take(3)
             ->get();
 
-            $education_posts = Post::whereHas('category', function($query){
+            $education_posts1 = Post::whereHas('category', function($query){
                 $query->where('judul', 'Education');
             })
             ->where('is_featured', 'not_featured')
@@ -51,7 +51,7 @@ class FrontController extends Controller
             ->take(3)
             ->get();
 
-            $archievement_posts = Post::whereHas('category', function($query){
+            $achievement_posts = Post::whereHas('category', function($query){
                 $query->where('judul', 'Archievement');
             })
             ->where('is_featured', 'not_featured')
@@ -61,7 +61,7 @@ class FrontController extends Controller
 
 
             return view('front.index',
-            compact('categories', 'authors', 'entertainment_posts', 'posts', 'featured_posts', 'banner_advertisements', 'education_posts', 'archievement_posts'));
+            compact('categories', 'authors', 'entertainment_posts', 'posts', 'featured_posts', 'banner_advertisements', 'education_posts1', 'achievement_posts'));
     }
 
     public Function category (Category $category) {

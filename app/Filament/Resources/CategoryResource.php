@@ -38,7 +38,7 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                forms\Components\TextInput::make('judul')
+                forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
@@ -47,6 +47,9 @@ class CategoryResource extends Resource
                 Forms\Components\FileUpload::make('icon')
                     ->required()
                     ->image(),
+                Forms\Components\TextInput::make('description')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -54,11 +57,15 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('judul')
+                Tables\Columns\TextColumn::make('title')
                 ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                 ->searchable(),
                 Tables\Columns\ImageColumn::make('icon'),
+                Tables\Columns\TextColumn::make('slug')
+                ->searchable(),
+                Tables\Columns\TextColumn::make('description')
+                ->searchable(),
                 Tables\Columns\TextColumn::make('Deleted_at')
                 ->dateTime()
                 ->sortable()

@@ -38,6 +38,7 @@
 				@endforelse
 			</div>
 		</section>
+		<br> <br>
 	<x-footer/>
 </body>
 </html>

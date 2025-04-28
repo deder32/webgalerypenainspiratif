@@ -17,10 +17,10 @@
 		<nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
 				@foreach ($categories as $category)
 			<a href="{{ route('front.category', $category->slug)}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#2563eb]">
-				<div class="w-6 h-6 flex shrink-0">
+				<div class="w-6 h-6 flex shrink-0 ">
 					<img src="{{ Storage::url($category->icon) }}" alt="icon" />
 				</div>
-				<span>{{$category->judul}}</span>
+				<span class="text-blue-500">{{$category->title}}</span>
 			</a>
 			@endforeach
 		</nav>
@@ -34,7 +34,7 @@
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
 							<a href="{{ route('front.details', $post->slug) }}" class="font-bold text-4xl leading-[45px] text-white two-lines hover:underline transition-all duration-300">{{ $post->judul }}</a>
-							<p class="text-white">{{$post->created_at->format('M d, Y')}} • {{ $post->category->judul}}</p>
+							<p class="text-white">{{$post->created_at->format('M d, Y')}} • {{ $post->category->title}}</p>
 						</div>
 						<div class="prevNextButtons flex items-center gap-4 mb-[60px]">
 							<button class="button--previous appearance-none w-[38px] h-[38px] flex items-center justify-center rounded-full shrink-0 ring-1 ring-white hover:ring-2 hover:ring-[#2563eb] transition-all duration-300">
@@ -65,7 +65,7 @@
 				<a href="{{route('front.details',$post->slug)}}" class="card-news">
 					<div class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[26px_20px] flex flex-col gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300 bg-white">
 						<div class="thumbnail-container w-full h-[200px] rounded-[20px] flex shrink-0 overflow-hidden relative">
-							<p class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">{{ $post->category->judul }}</p>
+							<p class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">{{ $post->category->title }}</p>
 							<img src="{{Storage::url($post->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail" />
 						</div>
 						<div class="card-info flex flex-col gap-[6px]">
@@ -120,7 +120,7 @@
 		<section id="Latest-entertainment" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px] border-2 border-blue-400 rounded-[20px] p-6">
 			<div class="flex justify-between items-center">
 				<h2 class="font-bold text-[26px] text-blue-500 leading-[39px]">
-					#Trending in Education <br />
+					#Last in Education <br />
 				</h2>
 				<a href="category/education" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#2563eb]">Explore All</a>
 			</div>
@@ -129,31 +129,46 @@
 			<img id="education-image" src="{{asset('assets/images/photos/education.jpg')}}" alt="icon" />
 			</div>
 
-				<div class="h-[424px] w-fit px-5 overflow-y-scroll overflow-x-hidden relative custom-scrollbar">
-					<div id="post-edu">
-					<div class="w-[455px] flex gap-0.5 shrink-0">
-						@forelse ($education_posts as $post)
+			<div class="h-[424px] w-fit px-5 overflow-y-scroll overflow-x-hidden relative custom-scrollbar">
+					<div class="w-[455px] flex flex-col gap-5 shrink-0">
+						@forelse ($achievement_posts as $post)
 						<a href="{{route('front.details', $post->slug)}}" class="card py-[2px]">
-							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-5 hover:ring-2 hover:ring-[#bfdbfe] transition-all duration-300">
+							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
 									<img src="{{Storage::url($post->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail" />
 								</div>
-								<div class="flex flex-col justify-center-center gap-[4px]">
+								<div class="flex flex-col justify-center-center gap-[6px]">
 									<h3 class="font-bold text-lg leading-[27px]">{{$post->judul}}</h3>
 									<p class="text-sm leading-[21px] text-[#A3A6AE]">12 Jun, 2024</p>
 								</div>
 							</div>
 						</a>
 						@empty
-						<p> Kosong </p>
-						@endforelse
+				<div class="flex flex-col items-center justify-center p-6 min-h-[300px] text-center">
+  				<!-- Animated Circle -->
+  					<div class="w-20 h-20 mb-6 rounded-full bg-gray-100 flex items-center justify-center animate-pulse">
+   	 					<span class="text-3xl">📝</span>
+  					</div>
+  
+  					<h3 class="text-xl font-semibold text-gray-800 mb-1">Belum ada artikel</h3>
+  					<p class="text-gray-500 text-sm mb-6">Konten sedang dalam persiapan</p>
+  
+  						<a href="{{route('front.allpost')}}" class="text-blue-500 hover:text-blue-600 font-medium text-sm flex items-center group">
+    				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+    				</svg>
+    				Lihat artikel lainnya
+					</a>
 					</div>
+				@endforelse
 					</div>
 					<div class="sticky z-10 bottom-0 w-full h-[100px] bg-gradient-to-b from-[rgba(255,255,255,0.19)] to-[rgba(255,255,255,1)]"></div>
 				</div>
 			</div>
 		</section>
-
+		<div>
+		<x-organization-structure/>
+		</div>
 		<div class="max-w-3xl mx-auto my-12 p-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl text-white">
   			<blockquote class="relative">
     		<p class="text-xl font-medium mb-4">
@@ -175,5 +190,4 @@
 </div>
 <x-footer/>
 	</body>
-	
 </html>

@@ -25,7 +25,7 @@ class PostResource extends Resource
 
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'success';
+        return static::getModel()::count() > 20 ? 'warning' : 'success';
     }
 
     protected static ?string $navigationBadgeTooltip = 'The number of posts';
@@ -96,12 +96,13 @@ class PostResource extends Resource
                         'featured' => 'succes',
                         'not_featured' => 'warning'
                     }),
-                Tables\Columns\TextColumn::make('category.judul')
+                Tables\Columns\TextColumn::make('category.title')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('author.username')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

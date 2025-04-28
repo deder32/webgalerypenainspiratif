@@ -20,14 +20,14 @@
 				<div class="w-6 h-6 flex shrink-0">
 					<img src="{{ Storage::url($item_category->icon) }}" alt="icon" />
 				</div>
-				<span>{{$item_category->judul}}</span>
+				<span>{{$item_category->title}}</span>
 			</a>
 			@endforeach
 		</nav>
 	<section id="Category-result" class="max-w-[1130px] mx-auto flex items-center flex-col gap-[30px] mt-[70px]">
 		<h1 class="text-4xl leading-[45px] font-bold text-center">
 			Explore Our <br />
-			{{$category->judul}}
+			{{$category->title}}
 		</h1>
 		<div id="search-cards" class="grid grid-cols-3 gap-[30px]">
 			@forelse ($category->posts as $post)

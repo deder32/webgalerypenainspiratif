@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('authors', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('slug')->unique();
-            $table->string('avatar');
-            $table->string('occupation');
-            $table->string('position');
+            $table->string('link');
+            $table->enum('is_active', ['active', 'not_active']);
+            $table->enum('type', ['banner', 'square']);
+            $table->string('thumbnail');
             $table->softDeletes();
             $table->timestamps();
-        });
+         });
     }
 
     /**
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('authors');
+        Schema::dropIfExists('sliders');
     }
 };

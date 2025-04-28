@@ -26,7 +26,7 @@
 	</nav>
 		
 		<section id="search-result" class="max-w-[1130px] mx-auto flex items-start flex-col gap-[30px] mt-[70px] mb-[100px]">
-			<h2 class="text-[26px] leading-[39px] font-bold">Search Result: <span>{{ ucfirst($keyword) }}</span></h2>
+			<h2 class="text-[26px] leading-[39px] font-bold text-yellow-300">Search Result: <span class="text-black"> {{ucfirst($keyword) }} </span></h2>
 			<div id="search-cards" class="grid grid-cols-3 gap-[30px]">
 				
 				@forelse($posts as $post)

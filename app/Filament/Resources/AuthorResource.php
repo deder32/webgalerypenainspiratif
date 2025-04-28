@@ -47,6 +47,9 @@ class AuthorResource extends Resource
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('position')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -60,6 +63,8 @@ class AuthorResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('avatar'),
                 Tables\Columns\TextColumn::make('occupation')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('position')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
